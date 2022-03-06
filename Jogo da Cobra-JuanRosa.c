@@ -134,10 +134,10 @@ void maximize_window();
 
 //======= VARIAVEIS GLOBAIS =========//
 // Velocidade
-int speed = 100;
+int speed = 250;
 int n_maca = 0;
 int n_maca_ant = 0;
-char Nome_jogador_input[20] = "A definir";
+char Nome_jogador_input[15] = "A definir";
 int jogar_number;
 int jogar_number_ant;
 int nivel;
@@ -150,6 +150,24 @@ int main(){
     if(n_maca != 0){
     char *buf; 
     size_t sz;
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
+    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    buf = (char *)malloc(sz + 1);
     sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
     snprintf(buf, sz+1, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
@@ -240,6 +258,7 @@ void jogo(){
             if(verifica_maca(elm_coli)){
                 printf("*");
                 n_maca=n_maca+1;
+                speed=speed-5;
                 alimenta_cobra(cobra);
                 atualiza_maca(cobra, quadro);
                 imprime_placar(n_maca, nivel);
@@ -504,24 +523,24 @@ void menu_inicial(char Nome_jogador){
             nivel=3;
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
-            speed = 50;
-            OBS_RAIZES = 30;
+            speed = 70;
+            OBS_RAIZES = 20;
             scanf("%s", &Nome_jogador_input);
             break;
         case 2:
             nivel=2;
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
-            speed = 70;
-            OBS_RAIZES = 15; //Variavel de incrementação de obstáculos
+            speed = 150;
+            OBS_RAIZES = 10; //Variavel de incrementação de obstáculos
             scanf("%s", &Nome_jogador_input);
             break;
         case 1:
             nivel=1;
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
-            speed = 100;
-            OBS_RAIZES = 10;
+            speed = 250;
+            OBS_RAIZES = 5;
             scanf("%s", &Nome_jogador_input);
             break;
     }
