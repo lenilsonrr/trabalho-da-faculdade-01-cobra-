@@ -81,8 +81,10 @@ FILA    *cria_fila();
 char    **cria_matriz();
 DIRECAO *cria_direcao();
 
+//responsalvel pelo nome do jogador inicial
 void menu_inicial(char Nome_jogador);
 void jogo();
+
 void imprime_cobra(COBRA *cobra);
 void imprime_maca(MACA *maca);
 void imprime_borda(char **matriz);
@@ -132,8 +134,8 @@ void hide_cursor(bool hide);
 void run_cursor();
 void maximize_window();
 
-//======= VARIAVEIS GLOBAIS =========//
-// Velocidade
+//======= VARIAVEIS GLOBAIS  responsavel pelo placar e nivel
+// controlando a Velocidade
 int speed = 250;
 int n_maca = 0;
 int n_maca_ant = 0;
@@ -147,30 +149,32 @@ int nivel;
 //============== MAIN ============//
 int main(){
 
+    //responsavel pelo placar na esquerda da tela com 10 espaços
+
     if(n_maca != 0){
     char *buf; 
     size_t sz;
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s|| Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    sz = snprintf(NULL, 0, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    sz = snprintf(NULL, 0, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     buf = (char *)malloc(sz + 1);
-    snprintf(buf, sz+1, "\nJogador: %s  ||  Qtd Macas: %d || Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
+    snprintf(buf, sz+1, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
     FILE *file;
 
     file = fopen("records.txt", "a+");
@@ -179,8 +183,8 @@ int main(){
     fclose(file);
     }
 
+     //Iniciando tela .exe
     system("title SNAKE GAME");
-    //Iniciando tela
     jogar_number_ant = jogar_number;
     n_maca_ant = n_maca;
     n_maca = 0;
@@ -255,6 +259,8 @@ void jogo(){
                 }
             }
 
+            //quando come maça aparece obstaculo e aumenta a velocidade
+            
             if(verifica_maca(elm_coli)){
                 printf("*");
                 n_maca=n_maca+1;
@@ -371,6 +377,8 @@ void imprime_maca(MACA *maca){
 
     set_char_by_cursor(r->elm,r->pos_x,r->pos_y);
 }
+
+//responsavel pelo placar
 
 void imprime_placar(int n_maca, int nivel){
     
@@ -502,6 +510,8 @@ void menu_inicial(char Nome_jogador){
     fclose(fp);
     set_char_by_cursor(EMPTY_ROW, 57, 11);
 
+//escolha dos niveis com o nome do jogador , apagar jogadas anteriores e mostra ultima jogadas 
+
     printf("Jogador: %s  ----  Qtd Macas: %d ---- Nivel: %d", Nome_jogador_input, n_maca_ant, jogar_number_ant);
     set_char_by_cursor(EMPTY_ROW, 75, 18);
     puts("|Dificl  - 3|");
@@ -539,7 +549,7 @@ void menu_inicial(char Nome_jogador){
             nivel=1;
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
-            speed = 250;
+            speed = 250;//velocidade dos niveis diferentes
             OBS_RAIZES = 5;
             scanf("%s", &Nome_jogador_input);
             break;
