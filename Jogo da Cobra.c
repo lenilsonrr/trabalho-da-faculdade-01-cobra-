@@ -534,7 +534,7 @@ void menu_inicial(char Nome_jogador){
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
             speed = 70;
-            OBS_RAIZES = 20;
+            OBS_RAIZES = 40;
             scanf("%s", &Nome_jogador_input);
             break;
         case 2:
@@ -542,7 +542,7 @@ void menu_inicial(char Nome_jogador){
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
             speed = 150;
-            OBS_RAIZES = 10; //Variavel de incrementação de obstáculos
+            OBS_RAIZES = 17; //Variavel de incrementação de obstáculos
             scanf("%s", &Nome_jogador_input);
             break;
         case 1:
