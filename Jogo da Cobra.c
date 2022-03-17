@@ -149,7 +149,7 @@ int nivel;
 //============== MAIN ============//
 int main(){
 
-    //responsavel pelo placar na esquerda da tela com 10 espaços
+    //responsavel pelo placar na esquerda da tela
 
     if(n_maca != 0){
     char *buf; 
@@ -480,6 +480,7 @@ long int findSize(char file_name[])
     return res;
 }
 
+//ranking TXT
 
 void menu_inicial(char Nome_jogador){
     int res1;
