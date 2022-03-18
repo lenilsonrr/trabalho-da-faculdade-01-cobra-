@@ -135,8 +135,8 @@ void run_cursor();
 void maximize_window();
 
 //======= VARIAVEIS GLOBAIS  responsavel pelo placar e nivel
-// controlando a Velocidade
-int speed = 250;
+
+int speed = 250;// controlando a Velocidade
 int n_maca = 0;
 int n_maca_ant = 0;
 char Nome_jogador_input[15] = "A definir";
@@ -149,7 +149,9 @@ int nivel;
 //============== MAIN ============//
 int main(){
 
-    //responsavel pelo placar na esquerda da tela
+       //topico 2 responsavel pelo placar na esquerda da tela
+
+    
 
     if(n_maca != 0){
     char *buf; 
@@ -158,10 +160,11 @@ int main(){
     buf = (char *)malloc(sz + 1);
     snprintf(buf, sz+1, "\nJogador: %s||Qtd Macas: %d||Nivel: %d\n", Nome_jogador_input, n_maca, jogar_number);
 
+    
 
     //ranking TXT
 
-    FILE *file;
+    FILE *file; 
 
     file = fopen("records.txt", "a+");
    
@@ -169,7 +172,8 @@ int main(){
     fclose(file);
     }
 
-     //Iniciando tela .exe
+     //Iniciando tela 
+
     system("title SNAKE GAME");
     jogar_number_ant = jogar_number;
     n_maca_ant = n_maca;
@@ -245,12 +249,12 @@ void jogo(){
                 }
             }
 
-            //quando come maça aparece obstaculo e aumenta a velocidade
+            
             
             if(verifica_maca(elm_coli)){
                 printf("*");
-                n_maca=n_maca+1;
-                speed=speed-10;
+                n_maca=n_maca+1;  //topico 3 quando come maça aparece obstaculo e aumenta a velocidade
+                speed=speed-15;
                 alimenta_cobra(cobra);
                 atualiza_maca(cobra, quadro);
                 imprime_placar(n_maca, nivel);
@@ -480,7 +484,9 @@ long int findSize(char file_name[])
     return res;
 }
 
-//ranking TXT
+     
+
+//ranking TXT topico 4 com bonus arquivo TXT nome pontos ranking
 
 void menu_inicial(char Nome_jogador){
     int res1;
@@ -497,7 +503,7 @@ void menu_inicial(char Nome_jogador){
     fclose(fp);
     set_char_by_cursor(EMPTY_ROW, 57, 11);
 
-//escolha dos niveis com o nome do jogador , apagar jogadas anteriores e mostra ultima jogadas 
+   //topico 1 escolha dos niveis com o nome do jogador e mostra ultima jogadas 
 
     printf("Jogador: %s  ----  Qtd Macas: %d ---- Nivel: %d", Nome_jogador_input, n_maca_ant, jogar_number_ant);
     set_char_by_cursor(EMPTY_ROW, 75, 18);
@@ -512,7 +518,7 @@ void menu_inicial(char Nome_jogador){
     scanf("%d", &jogar_number);
     system("pause>nul");
     switch(jogar_number){
-        case 4:
+        case 4:                                                       
             remove("records.txt");
             main();
             break;
@@ -537,7 +543,7 @@ void menu_inicial(char Nome_jogador){
             system("cls");
             imprime_mensagem("Defina o nome do jogador: ");
             speed = 250;//velocidade dos niveis diferentes
-            OBS_RAIZES = 10;
+            OBS_RAIZES = 5;
             scanf("%s", &Nome_jogador_input);
             break;
     }
