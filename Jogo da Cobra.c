@@ -149,7 +149,7 @@ int nivel;
 //============== MAIN ============//
 int main(){
 
-       //topico 2 responsavel pelo placar na esquerda da tela
+       //topico 2 responsavel pelo ranking
 
     
 
@@ -162,7 +162,7 @@ int main(){
 
     
 
-    //ranking TXT
+    //bonus ranking TXT
 
     FILE *file; 
 
@@ -252,8 +252,8 @@ void jogo(){
             
             
             if(verifica_maca(elm_coli)){
-                printf("*");
-                n_maca=n_maca+1;  //topico 3 quando come maça aparece obstaculo e aumenta a velocidade
+                printf("#");
+                n_maca=n_maca+1;  //topico 3 quando come maça cria obstaculo e aumenta a velocidade
                 speed=speed-15;
                 alimenta_cobra(cobra);
                 atualiza_maca(cobra, quadro);
@@ -486,13 +486,13 @@ long int findSize(char file_name[])
 
      
 
-//ranking TXT topico 4 com bonus arquivo TXT nome pontos ranking
+ //topico 4 escolha dos niveis , obstaculos e velocidade
 
 void menu_inicial(char Nome_jogador){
     int res1;
     system("cls");
     char *filename = "records.txt";
-    FILE *fp = fopen(filename, "r");
+    FILE *fp = fopen(filename, "r"); //bonus 
     res1 = findSize("records.txt");
 
     char ch;
@@ -503,7 +503,7 @@ void menu_inicial(char Nome_jogador){
     fclose(fp);
     set_char_by_cursor(EMPTY_ROW, 57, 11);
 
-   //topico 1 escolha dos niveis com o nome do jogador e mostra ultima jogadas 
+  
 
     printf("Jogador: %s  ----  Qtd Macas: %d ---- Nivel: %d", Nome_jogador_input, n_maca_ant, jogar_number_ant);
     set_char_by_cursor(EMPTY_ROW, 75, 18);
@@ -541,8 +541,8 @@ void menu_inicial(char Nome_jogador){
         case 1:
             nivel=1;
             system("cls");
-            imprime_mensagem("Defina o nome do jogador: ");
-            speed = 250;//velocidade dos niveis diferentes
+            imprime_mensagem("Defina o nome do jogador: "); //topico 1 nome do jogador
+            speed = 250;//velocidade nivel
             OBS_RAIZES = 5;
             scanf("%s", &Nome_jogador_input);
             break;
