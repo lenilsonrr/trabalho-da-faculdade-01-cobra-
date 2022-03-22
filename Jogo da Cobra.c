@@ -166,7 +166,7 @@ int main(){
 
     FILE *file; 
 
-    file = fopen("records.txt", "a+");
+    file = fopen("ranking.txt", "a+");
    
     fwrite(buf, 1, sizeof("\nJogador: %d  ||  Macas: %d || Nivel: %d  \n"), file);
     fclose(file);
